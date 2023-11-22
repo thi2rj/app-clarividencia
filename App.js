@@ -10,6 +10,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import { Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
 
+// Corrigir gravador de áudio, anexador de foto, lista decrescente do mais recente para o mais antigo, 
+// criar teste de clarividência com números
 
 // Carregar as fontes personalizadas
 Font.loadAsync({
@@ -28,7 +30,7 @@ const colors = {
 
 const fonts = {
   regular: 'Roboto',
-  bold: 'Roboto-Bold',
+  bold: 'Roboto',
 };
 
 // Definir o componente da página inicial
