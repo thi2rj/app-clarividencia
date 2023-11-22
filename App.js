@@ -7,6 +7,15 @@ import * as ImagePicker from 'expo-image-picker';
 import { Audio } from 'expo-av';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import * as Font from 'expo-font';
+import { Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
+
+
+// Carregar as fontes personalizadas
+Font.loadAsync({
+  'Roboto-Bold': Roboto_700Bold,
+  'Roboto-Regular': Roboto_400Regular,
+});
 
 // Definir as cores e fontes para o estilo do aplicativo
 const colors = {
@@ -480,14 +489,14 @@ const Stack = createStackNavigator();
 
 // Definir o componente de navegação do aplicativo
 
-  // Retornar o elemento de navegação
+  // Retornar o elemento de navegação 
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ ...options, title: 'Início' }}
+          options={options} // Passar a variável options
         />
         <Stack.Screen
           name="Main"
@@ -526,14 +535,27 @@ import { AppRegistry } from 'react-native';
 const App = () => {
   // Retornar o elemento principal
   return (
-    <NavigationContainer>
+    
       <AppNavigator />
-    </NavigationContainer>
+    
   );
 };
 
+
+
 // Registrar o componente App com o nome "main"
 AppRegistry.registerComponent('main', () => App);
+
+// Definir as opções de navegação
+const options = {
+  headerStyle: {
+    backgroundColor: colors.primary,
+  },
+  headerTintColor: colors.white,
+  headerTitleStyle: {
+    fontFamily: fonts.bold,
+  },
+};
 
 // Definir o estilo do aplicativo
 const styles = StyleSheet.create({
